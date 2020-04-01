@@ -1,0 +1,30 @@
+version: "3.3"
+
+services:
+
+  cliente2:
+    container_name: client-2
+    build: ./cliente
+    volumes:
+        - "./cliente/src:/app/src"
+    depends_on:
+        - cliente1
+
+  cliente1:
+    container_name: client-1
+    build: ./cliente
+    volumes:
+        - "./cliente/src:/app/src"
+    depends_on:
+        - mqtt
+
+  mqtt:
+    container_name: mqtt-server
+    image: eclipse-mosquitto
+    volumes:
+        - ./config:/mosquitto/config
+        - ./data:/mosquitto/data
+        - ./logs:/mosquitto/logs
+    ports:
+        - 1883:1883
+        - 9001:9001
