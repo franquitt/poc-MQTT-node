@@ -1,5 +1,6 @@
 # MQTT
 En este repositorio se generó un broker MQTT con el software **Mosquitto** y dos clientes *subscriptores* y *publicadores* con la libreria MQTT para node. El objetivo del repo es demostrar a grandes razgos el patron de diseño con el que se usa MQTT y su implementación.
+Al levantar el compose, los dos clientes se conectan al broker y publican el hecho que se suscribieron. Cuando un cliente recibe por primera vez un mensaje(cualquiera sea), publica informacion de un sensor con datos aleatorios.
 
 ## Tecnologías:
 - NodeJS
